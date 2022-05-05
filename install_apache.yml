@@ -9,11 +9,15 @@
      update_cache: yes
 
   - name: install apache2 package
+    tags: kalyan123
     yum:
      name: httpd
      state: present
+    when: ansible_distribution == "RedHat"
   - name: libapache2-mod install
+    tags: kalyan
     yum:
      name: ansible
      state: absent
+    when: ansible_distribution == ["Ubuntu", "Debian"]
 
